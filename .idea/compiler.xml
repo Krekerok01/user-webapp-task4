@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="user_webapp_task4" />
+        <module name="spring-security-custom-user-registration-demo-thymeleaf-spring-boot" />
+        <module name="user-webapp-task4-demo-master" />
+        <module name="test2_user" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="user-webapp-task4" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-security-custom-user-registration-demo-thymeleaf-spring-boot" options="-parameters" />
+      <module name="test2_user" options="-parameters" />
+      <module name="user-webapp-task4" options="-parameters" />
+      <module name="user-webapp-task4-demo-master" options="-parameters" />
+      <module name="user_webapp_task4" options="-parameters" />
+    </option>
+  </component>
+</project>

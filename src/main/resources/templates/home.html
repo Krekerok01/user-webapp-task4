@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+		  rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+		  crossorigin="anonymous">
+
+	<style type="text/css">
+        body {
+            background: #C5C3D2;
+        }
+
+        .links {
+            margin-top: 2px;
+            float: right;
+        }
+
+
+  </style>
+
+
+	<title>User Directory</title>
+
+</head>
+
+<body>
+
+<div class="container">
+
+
+	<h3>User Directory</h3>
+
+
+	<hr>
+
+
+
+	<table class="table table-bordered table-striped" >
+		<thead class="thead-dark">
+		<tr>
+			<th>Select</th>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Registration date</th>
+			<th>Last been date</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+		</thead>
+
+		<tbody>
+		<tr th:each="tempUser : ${users}">
+			<td>
+				<input class="form-check-input" type="checkbox" id="selectUser">
+			</td>
+			<td th:text="${tempUser.id}" />
+			<td th:text="${tempUser.name}" />
+			<td th:text="${tempUser.email}" />
+			<td th:text="${tempUser.registrationDate}" />
+			<td th:text="${tempUser.lastBeenDate}" />
+			<td th:text="${tempUser.status}" />
+
+			<td>
+
+				<!-- Add delete button/link -->
+				<a th:href="@{deleteUser(userId=${tempUser.id})}"
+				   class="btn btn-danger btn-sm"
+				   onclick="if (!(confirm('Are you sure you want to delete this user?'))) return false" >
+					Delete
+				</a>
+
+				<a th:href="@{blockUser(username=${tempUser.username})}"
+				   class="btn btn-secondary btn-sm"
+				>
+					Block
+				</a>
+
+				<a th:href="@{unblockUser(username=${tempUser.username})}"
+				   class="btn btn-success btn-sm"
+				>
+					Unblock
+				</a>
+
+			</td>
+		</tr>
+		</tbody>
+
+	</table>
+
+	<br>
+
+
+
+	<!-- Add a logout button -->
+	<form action="#" th:action="@{/logout}"
+		  method="POST">
+
+		<input type="submit" value="Logout" class="btn btn-outline-primary mt-2" />
+
+	</form>
+
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
